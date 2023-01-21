@@ -6,7 +6,7 @@ fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
         .add_plugin(JsonAssetPlugin::<Level>::new(&["json.level"]))
-        .insert_resource(Msaa { samples: 1 })
+        .insert_resource(Msaa::Off)
         .add_state(AppState::Loading)
         .add_startup_system(setup)
         .add_system_set(SystemSet::on_update(AppState::Loading).with_system(spawn_level))

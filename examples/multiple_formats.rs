@@ -10,7 +10,7 @@ fn main() {
         // The important thing is: they all need distinct extensions!
         .add_plugin(JsonAssetPlugin::<Level>::new(&["json.level"]))
         .add_plugin(RonAssetPlugin::<Level>::new(&["ron.level"]))
-        .insert_resource(Msaa { samples: 1 })
+        .insert_resource(Msaa::Off)
         .add_state(AppState::Loading)
         .add_startup_system(setup)
         .add_system_set(SystemSet::on_update(AppState::Loading).with_system(check_loading))
